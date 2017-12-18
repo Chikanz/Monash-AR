@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace UnityARInterface
@@ -11,6 +10,10 @@ namespace UnityARInterface
 
         [SerializeField]
         private int m_PlaneLayer;
+
+        public bool spawnShadowPlane = false;
+        public GameObject shadowPlaneObj;
+        private GameObject shadowPlane;
 
         public int planeLayer { get { return m_PlaneLayer; } }
 
@@ -45,6 +48,15 @@ namespace UnityARInterface
                 m_Planes.Add(plane.id, go);
             }
 
+            //Refresh shadow plane
+            if (!shadowPlane)
+                shadowPlane = Instantiate(shadowPlaneObj, go.transform.position,
+                    Quaternion.identity, GetRoot());
+
+            var p = shadowPlane.transform.position;
+            shadowPlane.transform.position = new Vector3(p.x, GetMedianPlaneHeight(m_Planes), p.z);
+
+
             go.transform.localPosition = plane.center;
             go.transform.localRotation = plane.rotation;
             go.transform.localScale = new Vector3(plane.extents.x, 1f, plane.extents.y);
@@ -70,6 +82,21 @@ namespace UnityARInterface
                 Destroy(go);
                 m_Planes.Remove(plane.id);
             }
+        }
+
+        //hmmmm.....
+        private float GetMedianPlaneHeight(Dictionary<string, GameObject> planes)
+        {
+            List<GameObject> g = new List<GameObject>();
+            foreach (KeyValuePair<string, GameObject> v in planes)
+            {
+                g.Add(v.Value);
+            }
+
+            if (g.Count < 2)
+                return g[0].transform.position.y;
+            else
+                return g[g.Count / 2].transform.position.y + 0.05f; //Get middle of list gameobject height
         }
     }
 }

@@ -6,11 +6,13 @@ using UnityARInterface;
 public class PlaceOnPlane : ARBase
 {
     [SerializeField]
-    private Transform m_ObjectToPlace;
+    private GameObject m_ObjectToPlace;
+
+    public Vector3 offset;
 
     void Update ()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             var camera = GetCamera();
 
@@ -20,7 +22,7 @@ public class PlaceOnPlane : ARBase
 
             RaycastHit rayHit;
             if (Physics.Raycast(ray, out rayHit, float.MaxValue, layerMask))
-                m_ObjectToPlace.transform.position = rayHit.point;
+                Instantiate(m_ObjectToPlace, rayHit.point + offset, Quaternion.identity);
         }
     }
 }

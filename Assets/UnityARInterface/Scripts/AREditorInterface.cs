@@ -108,6 +108,8 @@ namespace UnityARInterface
         public override void UpdateCamera(Camera camera)
         {
             float speed = camera.transform.parent.localScale.x / 10f;
+            speed *= 20;
+
             float turnSpeed = 10f;
             var forward = m_CameraPose.rotation * Vector3.forward;
             var right = m_CameraPose.rotation * Vector3.right;
