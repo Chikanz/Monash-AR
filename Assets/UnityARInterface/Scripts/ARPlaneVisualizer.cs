@@ -96,7 +96,7 @@ namespace UnityARInterface
             if (g.Count < 2)
                 return g[0].transform.position.y;
             else
-                return g[g.Count / 2].transform.position.y + 0.05f; //Get middle of list gameobject height
+                return g[g.Count / 2].transform.position.y - 0.05f; //Get middle of list gameobject height
         }
     }
 }

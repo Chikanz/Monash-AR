@@ -12,7 +12,7 @@ Shader "Custom/MobileARShadow"
             Tags { "LightMode" = "ForwardBase" "RenderType"="Opaque" "Queue"="Geometry+1" "ForceNoShadowCasting"="True"  }
 			LOD 150
 			Blend Zero SrcColor
-			ZWrite On
+			ZWrite Off
         
             CGPROGRAM
  

@@ -6,7 +6,7 @@ using UnityEngine;
 public class Mouth : MonoBehaviour {
 
     public float radius = 1;
-    public ParticleSystem EatParticles;
+    public GameObject EatParticles;
 
     private SphereCollider collider;
 
@@ -28,7 +28,7 @@ public class Mouth : MonoBehaviour {
         if(other.GetComponentInParent<pelletFloat>())
         {
             var p = Instantiate(EatParticles, other.transform.position, Quaternion.identity, null);
-            Destroy(p, 3);
+            Destroy(p, 1);
             Destroy(other.gameObject);
         }
     }

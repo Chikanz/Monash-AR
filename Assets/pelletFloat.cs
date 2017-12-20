@@ -13,15 +13,15 @@ public class pelletFloat : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        yOffset = transform.position.y;
+        yOffset = transform.localPosition.y;
 
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        var p = transform.position;
+        var p = transform.localPosition;
         var offset = alternate ? magnitude : 0;
-        transform.position = new Vector3(p.x, yOffset + Mathf.PingPong(Time.time * speed + offset, magnitude), p.z);
+        transform.localPosition = new Vector3(p.x, yOffset + Mathf.PingPong(Time.time * speed + offset, magnitude), p.z);
 	}
 }
