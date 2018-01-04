@@ -46,13 +46,10 @@ public abstract class Route : ARBase {
             Route3d.Add(pos);
         }
 
-        //Spawn end marker
-        if(hasEndMarker)
-        {
-            Instantiate(endMarker, Route3d[Route3d.Count - 1], Quaternion.identity, root);
-        }
-
         InitRoute();
+
+        //Spawn end marker
+        SpawnEndMarker();
     }
 
     /// <summary>
@@ -73,6 +70,15 @@ public abstract class Route : ARBase {
     protected virtual void CleanUp()
     {
 
+    }
+
+    protected virtual GameObject SpawnEndMarker()
+    {
+        if (hasEndMarker)
+        {
+            return Instantiate(endMarker, Route3d[Route3d.Count - 1], Quaternion.identity, root);
+        }
+        return null;
     }
 
     private void OnDisable()

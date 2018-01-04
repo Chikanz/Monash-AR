@@ -7,7 +7,7 @@ public class PointerRoute : Route
     public GameObject PointerLeft;
     public GameObject PointerRight;
 
-    public List<GameObject> Pointers;
+    private  List<GameObject> Pointers;
 
     protected override void AddCoordinates()
     {
@@ -51,5 +51,13 @@ public class PointerRoute : Route
         Quaternion forwardToTarget = Quaternion.LookRotation(right, up);
 
         return forwardToTarget * rightToForward;
+    }
+
+    protected override GameObject SpawnEndMarker()
+    {
+        var g = base.SpawnEndMarker();
+        var dir = Route3d[Route3d.Count - 2] - Route3d[Route3d.Count - 1]; //Face towards second last point
+        g.transform.rotation = Quaternion.LookRotation(dir);
+        return g;
     }
 }

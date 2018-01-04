@@ -903,10 +903,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RouteType: Pointer Route
   hasEndMarker: 1
-  endMarker: {fileID: 1306753515426574, guid: b51d796f09c69fb41adf2f1340aa85c7, type: 2}
-  PointerLeft: {fileID: 100000, guid: 0ce91d06c5399476fb5ec3a7f5e6f5dc, type: 3}
-  PointerRight: {fileID: 100000, guid: 71e522d6394c147bca7eea1e767b2b76, type: 3}
-  Pointers: []
+  endMarker: {fileID: 1744149599554528, guid: 054346ebb88014cee891de66e16c5a2c, type: 2}
+  PointerLeft: {fileID: 1216462939250990, guid: 397ce6b5e5cf8488b9102a64533d76a1,
+    type: 2}
+  PointerRight: {fileID: 1875972781980192, guid: 82ab5288a2a2c40c2b5afb5a98f1a6cf,
+    type: 2}
 --- !u!114 &1087451875
 MonoBehaviour:
   m_ObjectHideFlags: 0

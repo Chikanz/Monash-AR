@@ -567,7 +567,7 @@ GameObject:
   - component: {fileID: 4775947466195456}
   - component: {fileID: 95142599702121256}
   m_Layer: 0
-  m_Name: AD_obj@Pointing_Right
+  m_Name: Afro Pointing Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
