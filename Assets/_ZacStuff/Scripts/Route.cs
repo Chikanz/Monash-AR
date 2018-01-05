@@ -18,7 +18,9 @@ public abstract class Route : ARBase {
     protected AbstractMap map; //Map to get data from
 
     public bool hasEndMarker; //End marker
-    public GameObject endMarker; 
+    public GameObject endMarker;
+
+    protected List<GameObject> Objects = new List<GameObject>(); //Objects this route spawns
 
     // Use this for initialization
     protected virtual void OnEnable ()
@@ -69,7 +71,10 @@ public abstract class Route : ARBase {
 
     protected virtual void CleanUp()
     {
-
+        for(int i = 0; i < Objects.Count; i++)
+        {
+            Destroy(Objects[i]);
+        }
     }
 
     protected virtual GameObject SpawnEndMarker()

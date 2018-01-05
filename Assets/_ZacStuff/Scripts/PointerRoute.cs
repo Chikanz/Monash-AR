@@ -7,8 +7,6 @@ public class PointerRoute : Route
     public GameObject PointerLeft;
     public GameObject PointerRight;
 
-    private  List<GameObject> Pointers;
-
     protected override void AddCoordinates()
     {
         AddCoordinate(-37.87646, 145.04421);
@@ -39,6 +37,8 @@ public class PointerRoute : Route
                 {
                     g = Instantiate(PointerRight, Route3d[i], XLookRotation(dir));
                 }
+
+                Objects.Add(g);
             }
         }
     }
@@ -60,4 +60,5 @@ public class PointerRoute : Route
         g.transform.rotation = Quaternion.LookRotation(dir);
         return g;
     }
+
 }

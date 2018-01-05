@@ -88,6 +88,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &5
@@ -963,6 +964,21 @@ MonoBehaviour:
   frogSpeed: 1
   PushDistance: 2
   turnSpeed: 3
+--- !u!114 &1087451879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1087451868}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de6719e32769c9e4a8a1dcd427aa31a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RouteType: Line Route
+  hasEndMarker: 1
+  endMarker: {fileID: 1306753515426574, guid: b51d796f09c69fb41adf2f1340aa85c7, type: 2}
+  LineMat: {fileID: 2100000, guid: 51c594a4a987b4a42b028f195517e4ef, type: 2}
 --- !u!1 &1114949403
 GameObject:
   m_ObjectHideFlags: 0

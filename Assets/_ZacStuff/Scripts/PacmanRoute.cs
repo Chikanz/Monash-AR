@@ -39,6 +39,7 @@ public class PacmanRoute : Route {
             //Spawn turning point
             var tp = Instantiate(pelletPrefab, Route3d[i], Quaternion.identity, root);
             tp.transform.localScale *= 2; //Make turns bigger
+            Objects.Add(tp);
 
             //Create pelletes between points
             bool alternate = false;
@@ -52,6 +53,7 @@ public class PacmanRoute : Route {
                     var g = Instantiate(pelletPrefab, current, Quaternion.identity, root); //mek pellet
                     g.GetComponent<pelletFloat>().alternate = alternate; //alternate float
                     alternate = !alternate;
+                    Objects.Add(g);
                 }
             }
         }

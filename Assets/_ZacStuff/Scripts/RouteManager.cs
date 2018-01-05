@@ -21,6 +21,8 @@ public class RouteManager : MonoBehaviour {
     public GameObject ButtonPrefab;
     public float buttonOffset;
 
+    int currentRoute = -1;
+
     bool initalized = false;
 
     // Use this for initialization
@@ -77,6 +79,10 @@ public class RouteManager : MonoBehaviour {
     /// <param name="index"></param>
     public void SwitchRoute(int index)
     {
+        if (index == currentRoute) return;
+
+        currentRoute = index;
+
         foreach (Route r in RouteTypes)
             r.enabled = false;
 
