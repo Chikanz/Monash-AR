@@ -42,12 +42,6 @@ public class FrogRoute : Route
         AddCoordinate(-37.87695, 145.04256);
     }
 
-    //   // Use this for initialization
-    //   protected override void Start ()
-    //   {
-    //       base.Start();
-    //}
-
     // Update is called once per frame
     void Update()
     {

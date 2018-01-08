@@ -308,6 +308,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {x: 0, y: 0, z: 0}
   fadeOnAligned: 1
+  DestroyOnAlign: 0
   transparency: 0.688
   thresh: 0.792
   ARCam: {fileID: 0}
+  refreshTarget: 0
+  TargetRend: {fileID: 0}

@@ -22,12 +22,17 @@ public abstract class Route : ARBase {
 
     protected List<GameObject> Objects = new List<GameObject>(); //Objects this route spawns
 
+    private static GameObject Arrow;
+
     // Use this for initialization
     protected virtual void OnEnable ()
     {
         //Invoke("Init", 0.5f); //slight delay to allow mapbox to init
         map = GetComponent<MapAtWorldScale>();
         Init();
+
+        if (!Arrow) Arrow = (GameObject) Resources.Load("Arrow");
+        SpawnDirectionArrow();
     }
 
     /// <summary>
@@ -75,6 +80,8 @@ public abstract class Route : ARBase {
         {
             Destroy(Objects[i]);
         }
+
+        latLon.Clear();
     }
 
     protected virtual GameObject SpawnEndMarker()
@@ -92,4 +99,15 @@ public abstract class Route : ARBase {
         if (root) Destroy(root.gameObject);
     }
 
+    private void SpawnDirectionArrow()
+    {
+        var cam = GetCamera();
+        var arrow = Instantiate(Arrow, cam.transform.position + (cam.transform.forward * 7) + (cam.transform.up * 1), Quaternion.identity);
+        arrow.transform.parent = GetCamera().transform;
+        var face = arrow.GetComponent<FaceTowards>();
+        face.DestroyOnAlign = true;
+        face.Target = Route3d[0];
+        face.ARCam = GetCamera().transform;
+        Objects.Add(arrow);
+    }
 }

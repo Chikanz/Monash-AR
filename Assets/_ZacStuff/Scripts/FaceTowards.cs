@@ -6,7 +6,8 @@ public class FaceTowards : MonoBehaviour {
 
     [HideInInspector]
     public Vector3 Target;
-    public bool fadeOnAligned;
+    public bool fadeOnAligned = true;
+    public bool DestroyOnAlign;
 
     [Range(-0.0f, 1.0f)]
     public float transparency;
@@ -44,12 +45,19 @@ public class FaceTowards : MonoBehaviour {
             var dot = Vector3.Dot(ARCam.forward.normalized, facing.normalized);
             var dotMapped = ZacMath.Map(dot, -1, 1, 0, 1);
             UpdateTransparent(Mathf.Lerp(transparency, 0, dotMapped));
+
+            if (DestroyOnAlign && dotMapped > 0.9f)
+            {
+                Destroy(gameObject);
+            }
         }
 
         if(refreshTarget)
         {
             Target = TargetRend.bounds.center;
         }
+
+      
 	}
 
     void UpdateTransparent(float a)
