@@ -20,6 +20,8 @@ public class FaceTowards : MonoBehaviour {
     public bool refreshTarget = false;
     public Renderer TargetRend;
 
+    public bool OnlyRotY = true;
+
     List<MeshRenderer> rends = new List<MeshRenderer>();
 
 	// Use this for initialization
@@ -39,6 +41,12 @@ public class FaceTowards : MonoBehaviour {
     {
         Vector3 facing = Target - transform.position;
         transform.rotation = Quaternion.LookRotation(facing);
+
+        if(OnlyRotY)
+        {
+            var rot = transform.rotation.eulerAngles;
+            transform.rotation = Quaternion.Euler(new Vector3(0,rot.y,0));
+        }
 
         if(fadeOnAligned)
         {
