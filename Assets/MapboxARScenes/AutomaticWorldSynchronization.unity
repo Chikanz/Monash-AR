@@ -329,6 +329,17 @@ MonoBehaviour:
   m_ObjectToPlace: {fileID: 1909709251344926, guid: 63237e3cce5f2c14d801f3ee5dc994f3,
     type: 2}
   offset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &788052642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 788052635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb677e4d0dbf72e46862e51d705f1efb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &876187572
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,6 +823,53 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1047432187}
+--- !u!1 &1079354762
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1079354763}
+  - component: {fileID: 1079354764}
+  m_Layer: 9
+  m_Name: Points of Interest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1079354763
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1079354762}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1087451878}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1079354764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1079354762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47022026af9bab146947338d7f6a1c2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Points:
+  - Coords:
+      x: -37.8766
+      y: 145.0445
+    Object: {fileID: 1110064974604044, guid: bce30457131d73f489630575b5fa77c0, type: 2}
+    SnapToNearestBuilding: 1
+    Height: 10
 --- !u!1 &1081814816
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,6 +1022,11 @@ MonoBehaviour:
   frogSpeed: 1
   PushDistance: 2
   turnSpeed: 3
+--- !u!4 &1087451878 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4518919239272552, guid: 35e76f6e52f5c4252a0b703cc2019a37,
+    type: 2}
+  m_PrefabInternal: {fileID: 1002213147}
 --- !u!114 &1087451879
 MonoBehaviour:
   m_ObjectHideFlags: 0

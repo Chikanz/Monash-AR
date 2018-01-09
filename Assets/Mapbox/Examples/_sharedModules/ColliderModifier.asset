@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: ColliderModifier
   m_EditorClassIdentifier: 
   Active: 1
-  _colliderType: 1
+  _colliderType: 2
