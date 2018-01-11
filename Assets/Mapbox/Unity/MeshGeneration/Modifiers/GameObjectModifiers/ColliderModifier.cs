@@ -18,7 +18,8 @@ namespace Mapbox.Unity.MeshGeneration.Modifiers
                     ve.GameObject.AddComponent<BoxCollider>();
                     break;
                 case ColliderType.MeshCollider:
-                    ve.GameObject.AddComponent<MeshCollider>();
+                    var c = ve.GameObject.AddComponent<MeshCollider>();
+                    c.convex = true;
                     break;
                 case ColliderType.SphereCollider:
                     ve.GameObject.AddComponent<SphereCollider>();
