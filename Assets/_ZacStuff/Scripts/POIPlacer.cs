@@ -24,6 +24,9 @@ public class POIPlacer : MonoBehaviour
 
             if (p.SnapToNearestBuilding)
                 g.AddComponent<SnapToFace>();
+
+            if (p.setRot)
+                g.transform.rotation = Quaternion.Euler(p.RotToSet);
         }
     }
 
@@ -42,5 +45,7 @@ public class POI
     public GameObject Object;
     public bool SnapToNearestBuilding;
     public float Height;
+    public bool setRot;
+    public Vector3 RotToSet;
 }
 

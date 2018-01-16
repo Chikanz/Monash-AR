@@ -20,12 +20,18 @@ public class TriggerVideo : ARBase {
             if(Physics.Raycast(GetCamera().ScreenPointToRay(Input.mousePosition), out hit))
             {
                 var vid = hit.collider.GetComponentInChildren<VideoPlayer>();
+                var select = hit.collider.GetComponent<ARSelectable>();
                 if (vid)
+
                 {
                     if (!vid.isPlaying)
                         vid.Play();
                     else
                         vid.Stop();
+                }
+                else if(select)
+                {
+                    select.ToggleSelectable();
                 }
             }
         }

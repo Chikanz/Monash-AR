@@ -120,11 +120,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114442343794245348, guid: 35e76f6e52f5c4252a0b703cc2019a37,
-        type: 2}
-      propertyPath: Points.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4696204834899366, guid: 35e76f6e52f5c4252a0b703cc2019a37, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -156,97 +151,6 @@ Prefab:
     - target: {fileID: 4696204834899366, guid: 35e76f6e52f5c4252a0b703cc2019a37, type: 2}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114442343794245348, guid: 35e76f6e52f5c4252a0b703cc2019a37,
-        type: 2}
-      propertyPath: Points.Array.data[1].Height
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 114442343794245348, guid: 35e76f6e52f5c4252a0b703cc2019a37,
-        type: 2}
-      propertyPath: Points.Array.data[0].Coords.y
-      value: 145.043316
-      objectReference: {fileID: 0}
-    - target: {fileID: 114442343794245348, guid: 35e76f6e52f5c4252a0b703cc2019a37,
-        type: 2}
-      propertyPath: Points.Array.data[0].SnapToNearestBuilding
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114442343794245348, guid: 35e76f6e52f5c4252a0b703cc2019a37,
-        type: 2}
-      propertyPath: Points.Array.data[0].Coords.x
-      value: -37.87665
-      objectReference: {fileID: 0}
-    - target: {fileID: 114442343794245348, guid: 35e76f6e52f5c4252a0b703cc2019a37,
-        type: 2}
-      propertyPath: Points.Array.data[1].SnapToNearestBuilding
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114442343794245348, guid: 35e76f6e52f5c4252a0b703cc2019a37,
-        type: 2}
-      propertyPath: Points.Array.data[2].Coords.x
-      value: -37.87645
-      objectReference: {fileID: 0}
-    - target: {fileID: 114442343794245348, guid: 35e76f6e52f5c4252a0b703cc2019a37,
-        type: 2}
-      propertyPath: Points.Array.data[2].Coords.y
-      value: 145.04394
-      objectReference: {fileID: 0}
-    - target: {fileID: 114442343794245348, guid: 35e76f6e52f5c4252a0b703cc2019a37,
-        type: 2}
-      propertyPath: Points.Array.data[2].Object
-      value: 
-      objectReference: {fileID: 1980370542989184, guid: b92e4620bbcaaca4e8397831fc593931,
-        type: 2}
-    - target: {fileID: 114442343794245348, guid: 35e76f6e52f5c4252a0b703cc2019a37,
-        type: 2}
-      propertyPath: Points.Array.data[2].Height
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224409009942014400, guid: 35e76f6e52f5c4252a0b703cc2019a37,
-        type: 2}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224409009942014400, guid: 35e76f6e52f5c4252a0b703cc2019a37,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224409009942014400, guid: 35e76f6e52f5c4252a0b703cc2019a37,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 224409009942014400, guid: 35e76f6e52f5c4252a0b703cc2019a37,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224913775248040422, guid: 35e76f6e52f5c4252a0b703cc2019a37,
-        type: 2}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224913775248040422, guid: 35e76f6e52f5c4252a0b703cc2019a37,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224913775248040422, guid: 35e76f6e52f5c4252a0b703cc2019a37,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 224913775248040422, guid: 35e76f6e52f5c4252a0b703cc2019a37,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114442343794245348, guid: 35e76f6e52f5c4252a0b703cc2019a37,
-        type: 2}
-      propertyPath: Points.Array.data[2].SnapToNearestBuilding
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35e76f6e52f5c4252a0b703cc2019a37, type: 2}

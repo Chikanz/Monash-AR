@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 114446564026984890}
   - component: {fileID: 114276368146816386}
   - component: {fileID: 114690485768708916}
+  - component: {fileID: 114278994373040942}
   m_Layer: 9
   m_Name: ArAlignedMap
   m_TagString: Untagged
@@ -1750,6 +1751,17 @@ MonoBehaviour:
   frogSpeed: 1
   PushDistance: 2
   turnSpeed: 3
+--- !u!114 &114278994373040942
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1080084638664404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb677e4d0dbf72e46862e51d705f1efb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114291071258662570
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1937,16 +1949,44 @@ MonoBehaviour:
   Points:
   - Coords:
       x: -37.87665
-      y: 145.043373
+      y: 145.043316
     Object: {fileID: 1397540562450334, guid: 431ec8b684709094dbe4180a8c0045c6, type: 2}
-    SnapToNearestBuilding: 0
+    SnapToNearestBuilding: 1
     Height: 20
+    setRot: 0
+    RotToSet: {x: 0, y: 0, z: 0}
   - Coords:
       x: -37.8765
       y: 145.0437
     Object: {fileID: 1397540562450334, guid: 431ec8b684709094dbe4180a8c0045c6, type: 2}
     SnapToNearestBuilding: 1
     Height: 20
+    setRot: 0
+    RotToSet: {x: 0, y: 0, z: 0}
+  - Coords:
+      x: -37.87645
+      y: 145.04394
+    Object: {fileID: 1980370542989184, guid: b92e4620bbcaaca4e8397831fc593931, type: 2}
+    SnapToNearestBuilding: 1
+    Height: 1
+    setRot: 0
+    RotToSet: {x: 0, y: 0, z: 0}
+  - Coords:
+      x: -37.8765
+      y: 145.0442
+    Object: {fileID: 1403567255444014, guid: bb19eb312a6ceb145b4350c35fed0d26, type: 2}
+    SnapToNearestBuilding: 0
+    Height: 0
+    setRot: 0
+    RotToSet: {x: 0, y: 0, z: 0}
+  - Coords:
+      x: -37.8765
+      y: 145.0441
+    Object: {fileID: 1135862452706412, guid: df8e74b35a5e38444a9403d79cca9ec8, type: 2}
+    SnapToNearestBuilding: 0
+    Height: 1
+    setRot: 0
+    RotToSet: {x: 0, y: -30, z: 0}
 --- !u!114 &114443036492077780
 MonoBehaviour:
   m_ObjectHideFlags: 1
