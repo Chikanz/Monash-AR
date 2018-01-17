@@ -107,5 +107,7 @@ namespace Mapbox.Unity.Location
 				yield return null;
 			}
 		}
+
+        
 	}
 }
