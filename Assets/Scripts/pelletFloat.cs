@@ -10,6 +10,8 @@ public class pelletFloat : MonoBehaviour
 
     public bool rotate = false;
 
+    public bool canEat = true;
+
     private const float rotRate = 5;
 
     private float yOffset;

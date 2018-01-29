@@ -29,6 +29,7 @@ namespace Mapbox.Unity.Location
 
 		Vector2d LatitudeLongitude
 		{
+
 			get
 			{
 				return Conversions.StringToLatLon(_latitudeLongitude);

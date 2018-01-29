@@ -600,6 +600,7 @@ MonoBehaviour:
   magnitude: 0.5
   speed: 0.1
   rotate: 1
+  canEat: 0
 --- !u!222 &222083449460014848
 CanvasRenderer:
   m_ObjectHideFlags: 1

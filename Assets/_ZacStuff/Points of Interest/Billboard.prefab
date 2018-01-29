@@ -369,6 +369,8 @@ MonoBehaviour:
   alternate: 0
   magnitude: 0.5
   speed: 0.1
+  rotate: 0
+  canEat: 0
 --- !u!222 &222528879847430530
 CanvasRenderer:
   m_ObjectHideFlags: 1
