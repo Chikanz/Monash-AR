@@ -32,6 +32,13 @@ public class AdjustObj : ARBase
                     });
             }
         }
+
+        //Set OK button
+        transform.GetChild(0).GetComponent<Button>().onClick.AddListener(
+            delegate
+            {
+                GetCamera().transform.root.GetComponentInChildren<InstructionManager>().Advance();
+            });
 	}
 
     void Adjust(bool isX, float amnt)

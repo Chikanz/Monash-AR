@@ -2469,6 +2469,8 @@ MonoBehaviour:
   alignmentPlatformPrefab: {fileID: 1450491899667774, guid: 86b2954d9b368784eb1860fe2d09731a,
     type: 2}
   AlignmentUI: {fileID: 1412497910686284}
+  TyringDog: {fileID: 1310487008996154, guid: d36f0ea7b0a33af4c9baa687aaa08a15, type: 2}
+  ChockCount: 4
 --- !u!114 &114378411557821928
 MonoBehaviour:
   m_ObjectHideFlags: 1

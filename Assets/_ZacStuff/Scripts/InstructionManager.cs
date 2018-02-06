@@ -7,8 +7,13 @@ using Mapbox.Utils;
 using UnityARInterface;
 using Mapbox.Unity.Map;
 
+/// <summary>
+/// Singleton manager for ensuring tasks go step by step
+/// </summary>
 public class InstructionManager : ARBase
 {
+    static InstructionManager instance;
+
     public Text InstructionText;
 
     //1
@@ -21,6 +26,21 @@ public class InstructionManager : ARBase
     private PlaceOnPlane planePlacer;
     private GameObject platform;
 
+    //3
+    public GameObject TyringDog;
+    private TyringDog TyringDogInstance;
+
+    //6
+    int chocksHit;
+    public int ChockCount;
+
+    //7
+    public GameObject Hammer;
+    private Hammer HammerInstance;
+    private HammerPoints hammerPoints;
+    private GameObject tyre;
+
+
     private SimpleAutomaticSynchronizationContextBehaviour alignment;
 
     int step = 0;
@@ -30,11 +50,31 @@ public class InstructionManager : ARBase
         "Walk to the destination",
         "Welcome!",
         "Align the object with the platform",
+        "1. Tap to remove the tyre from the fire",
+        "2. Put the tyre on the wheel",
+        "3. Remove the chocks",
+        "4. Hammer time",
     };
+
+    public static InstructionManager GetInstance()
+    {
+        return instance;
+    }
+
+    public int GetStep()
+    {
+        return step;
+    }
 
 	// Use this for initialization
 	void Start ()
     {
+        //Enforce singleton
+        if (!instance)
+            instance = this;
+        else
+            Destroy(this);
+
         alignment = GetComponent<SimpleAutomaticSynchronizationContextBehaviour>();
         alignment.OnAlignmentAvailable += Alignment_OnAlignmentAvailable;
 
@@ -81,11 +121,51 @@ public class InstructionManager : ARBase
                         Destroy(planePlacer);
                         AlignmentUI.GetComponent<AdjustObj>().ObjToAdjust = platform;
                         InstructionText.text = Instruction[step];
+
+                        //Set vars
+                        hammerPoints = platform.transform.GetChild(0).GetComponentInChildren<HammerPoints>();
+                        tyre = platform.transform.GetChild(0).GetChild(0).gameObject;
                     }
                     else if (!p)
                     {
                         InstructionText.text = "Couldn't find ground plane!";
                     }
+                }
+                break;
+
+            case 4:
+                if (Input.GetMouseButtonDown(0))
+                {
+                    TyringDogInstance.Activate();
+                }
+                break;
+
+            case 6: //Destroy chocks on hit
+                if (Input.GetMouseButtonDown(0))
+                {
+                    Ray ray = GetCamera().ScreenPointToRay(Input.mousePosition);
+                    RaycastHit hit;
+                    if (Physics.Raycast(ray, out hit))
+                    {
+                        if (hit.collider.gameObject.tag.Equals("Chock"))
+                        {
+                            Destroy(hit.collider.gameObject);
+                            chocksHit++;
+                            if (chocksHit >= ChockCount) Advance();
+                        }
+                    }
+                }
+                break;
+
+            case 8:
+                if (Input.GetMouseButtonDown(0))
+                {
+                    HammerInstance.Activate();
+                }
+
+                if (hammerPoints.HammeringComplete())
+                {
+                    Advance();
                 }
                 break;
 
@@ -104,13 +184,40 @@ public class InstructionManager : ARBase
                 GetComponent<RouteManager>().SwitchRoute(1);
                 break;
 
-            case 3:
+            case 3: //Align platform
                 AlignmentUI.gameObject.SetActive(true);
                 planePlacer = gameObject.AddComponent<PlaceOnPlane>();
                 break;
 
-            case 4:
+            case 4: //Pickup tyre
+                //Spawn tyre dog
                 AlignmentUI.gameObject.SetActive(false);
+                var c = GetCamera();
+                TyringDogInstance = Instantiate(TyringDog, c.transform.position, c.transform.rotation, c.transform).GetComponent<TyringDog>();
+                TyringDogInstance.transform.localRotation = Quaternion.Euler(0, -90, 0); 
+                TyringDogInstance.transform.localPosition = new Vector3(0.2f, -0.475f, 0.764f);
+
+                //Activate firepit
+                platform.transform.GetChild(1).gameObject.SetActive(true);
+                break;
+
+            case 6:
+                Destroy(TyringDogInstance.gameObject);
+                break;
+
+            case 7:
+                hammerPoints.gameObject.SetActive(true);
+
+                var cam = GetCamera();
+                HammerInstance = Instantiate(Hammer, cam.transform.position, cam.transform.rotation, cam.transform).GetComponent<Hammer>();
+                HammerInstance.transform.localRotation = Quaternion.Euler(0, -90, 0);
+                HammerInstance.transform.localPosition = new Vector3(0.2f, -0.475f, 0.764f);
+                break;
+
+            case 8:
+                Destroy(HammerInstance);
+                tyre.transform.rotation = Quaternion.identity;
+                tyre.transform.localPosition = Vector3.zero;
                 break;
         }
 
