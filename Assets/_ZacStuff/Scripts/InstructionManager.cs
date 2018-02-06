@@ -40,7 +40,6 @@ public class InstructionManager : ARBase
     private HammerPoints hammerPoints;
     private GameObject tyre;
 
-
     private SimpleAutomaticSynchronizationContextBehaviour alignment;
 
     int step = 0;
@@ -157,15 +156,17 @@ public class InstructionManager : ARBase
                 }
                 break;
 
-            case 8:
+            case 7:
                 if (Input.GetMouseButtonDown(0))
                 {
                     HammerInstance.Activate();
                 }
 
-                if (hammerPoints.HammeringComplete())
+                Debug.Log(Vector3.Dot(Vector3.up, tyre.transform.forward));
+                if (Vector3.Dot(Vector3.up, tyre.transform.forward) > 0.9999f && tyre.transform.localPosition == Vector3.zero)
                 {
-                    Advance();
+                    //Advance();
+                    Debug.Log("Noice wheel boy");
                 }
                 break;
 
@@ -212,6 +213,7 @@ public class InstructionManager : ARBase
                 HammerInstance = Instantiate(Hammer, cam.transform.position, cam.transform.rotation, cam.transform).GetComponent<Hammer>();
                 HammerInstance.transform.localRotation = Quaternion.Euler(0, -90, 0);
                 HammerInstance.transform.localPosition = new Vector3(0.2f, -0.475f, 0.764f);
+                HammerInstance.tyre = tyre.transform;
                 break;
 
             case 8:

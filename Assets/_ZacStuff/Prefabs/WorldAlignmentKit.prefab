@@ -2471,6 +2471,7 @@ MonoBehaviour:
   AlignmentUI: {fileID: 1412497910686284}
   TyringDog: {fileID: 1310487008996154, guid: d36f0ea7b0a33af4c9baa687aaa08a15, type: 2}
   ChockCount: 4
+  Hammer: {fileID: 1893464550582758, guid: 8ce23f3d5f4ea7b4280fbe3114a5e63c, type: 2}
 --- !u!114 &114378411557821928
 MonoBehaviour:
   m_ObjectHideFlags: 1

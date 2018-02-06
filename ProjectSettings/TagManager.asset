@@ -7,6 +7,7 @@ TagManager:
   - SnapZone
   - Fire
   - Chock
+  - HammerPoint
   layers:
   - Default
   - TransparentFX

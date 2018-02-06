@@ -113,52 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &255799412
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4915886161555560, guid: 86b2954d9b368784eb1860fe2d09731a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 4.94
-      objectReference: {fileID: 0}
-    - target: {fileID: 4915886161555560, guid: 86b2954d9b368784eb1860fe2d09731a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -8.747
-      objectReference: {fileID: 0}
-    - target: {fileID: 4915886161555560, guid: 86b2954d9b368784eb1860fe2d09731a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 1.73
-      objectReference: {fileID: 0}
-    - target: {fileID: 4915886161555560, guid: 86b2954d9b368784eb1860fe2d09731a, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4915886161555560, guid: 86b2954d9b368784eb1860fe2d09731a, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4915886161555560, guid: 86b2954d9b368784eb1860fe2d09731a, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4915886161555560, guid: 86b2954d9b368784eb1860fe2d09731a, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4915886161555560, guid: 86b2954d9b368784eb1860fe2d09731a, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1450491899667774, guid: 86b2954d9b368784eb1860fe2d09731a, type: 2}
-      propertyPath: m_Name
-      value: Tyring Platform Root
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 86b2954d9b368784eb1860fe2d09731a, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &361596056
 Prefab:
   m_ObjectHideFlags: 0
@@ -300,7 +254,7 @@ Prefab:
     - target: {fileID: 224409009942014400, guid: 35e76f6e52f5c4252a0b703cc2019a37,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -60
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224913775248040422, guid: 35e76f6e52f5c4252a0b703cc2019a37,
         type: 2}
@@ -320,20 +274,60 @@ Prefab:
     - target: {fileID: 224913775248040422, guid: 35e76f6e52f5c4252a0b703cc2019a37,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -160
-      objectReference: {fileID: 0}
-    - target: {fileID: 1720949484365240, guid: 35e76f6e52f5c4252a0b703cc2019a37, type: 2}
-      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114341242509031076, guid: 35e76f6e52f5c4252a0b703cc2019a37,
-        type: 2}
-      propertyPath: Hammer
-      value: 
-      objectReference: {fileID: 1205209770870450, guid: 8ce23f3d5f4ea7b4280fbe3114a5e63c,
-        type: 2}
+    - target: {fileID: 1213150263827238, guid: 35e76f6e52f5c4252a0b703cc2019a37, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35e76f6e52f5c4252a0b703cc2019a37, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1195610402
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4915886161555560, guid: 86b2954d9b368784eb1860fe2d09731a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 4.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 4915886161555560, guid: 86b2954d9b368784eb1860fe2d09731a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -8.747
+      objectReference: {fileID: 0}
+    - target: {fileID: 4915886161555560, guid: 86b2954d9b368784eb1860fe2d09731a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 4915886161555560, guid: 86b2954d9b368784eb1860fe2d09731a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4915886161555560, guid: 86b2954d9b368784eb1860fe2d09731a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4915886161555560, guid: 86b2954d9b368784eb1860fe2d09731a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4915886161555560, guid: 86b2954d9b368784eb1860fe2d09731a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4915886161555560, guid: 86b2954d9b368784eb1860fe2d09731a, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450491899667774, guid: 86b2954d9b368784eb1860fe2d09731a, type: 2}
+      propertyPath: m_Name
+      value: Tyring Platform Root
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 86b2954d9b368784eb1860fe2d09731a, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1391539624
 GameObject:

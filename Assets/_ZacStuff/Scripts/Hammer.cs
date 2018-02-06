@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Hammer : TyringDog {
-
-    Transform wheel;
-    public float hitMagnitude = 0.1f;
+    
+    [HideInInspector]
+    public Transform tyre;
+    public float hitMagnitude = 5;
 
 	// Use this for initialization
-	void Start () {
-		
+	override protected void Start ()
+    {
+        base.Start();
 	}
 	
 	// Update is called once per frame
@@ -17,17 +19,35 @@ public class Hammer : TyringDog {
 		
 	}
 
-    new void OnTriggerEnter(Collider other)
+    //Hide parent behaviour
+    protected override void OnTriggerEnter(Collider other)
     {
         //Trigger the dumb hammerpoint object
-        if(other.tag.Equals("HammerPoint"))
+        if (other.gameObject.tag.Equals("HammerPoint") && !swingDirection && moving)
         {
-            other.GetComponent<ParticleSystem>().Play();
-            other.GetComponent<MeshRenderer>().enabled = false;
-            Destroy(other, 3);
-
             //Hit effect
-            wheel.Rotate(Random.insideUnitSphere * hitMagnitude);
+            var euler = Quaternion.Euler(0, 0, 90);
+            var hitPoint = other.transform.localPosition;
+            hitPoint.z = 0;
+            var vec = euler * hitPoint;
+            tyre.Rotate(vec * hitMagnitude);
+
+            //Move down
+            if(tyre.transform.localPosition.z > 0)
+                tyre.transform.localPosition -= new Vector3(0, 0, 0.0001f);
+            
+            if (tyre.transform.localPosition.z < 0)
+                tyre.transform.localPosition = Vector3.zero;
+
+            other.gameObject.GetComponentInChildren<ParticleSystem>().Play();
+
+            if (!swingDirection)
+                swingDirection = true;   
         }
+    }
+
+    protected void OnCollisionEnter(Collision other)
+    {
+        
     }
 }

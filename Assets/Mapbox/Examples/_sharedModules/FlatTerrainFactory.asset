@@ -15,6 +15,6 @@ MonoBehaviour:
   _createSideWalls: 0
   _sideWallHeight: 10
   _sideWallMaterial: {fileID: 0}
-  _addCollider: 1
+  _addCollider: 0
   _addToLayer: 1
   _layerId: 9

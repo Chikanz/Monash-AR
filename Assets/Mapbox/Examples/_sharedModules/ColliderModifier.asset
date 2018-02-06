@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 288d05a2dbabb0f46a5fa6c85102780a, type: 3}
   m_Name: ColliderModifier
   m_EditorClassIdentifier: 
-  Active: 1
+  Active: 0
   _colliderType: 2

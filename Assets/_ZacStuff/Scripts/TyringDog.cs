@@ -3,14 +3,16 @@ using UnityEngine;
 
 public class TyringDog : MonoBehaviour {
 
-    bool moving = false;
+    protected bool moving = false;
     bool canMove = true;
     public float pickupSpeed = 1;
     public float moveAngle = 90;
     private Quaternion startRot;
 
+    protected bool swingDirection; //false is down, true is up
+
 	// Use this for initialization
-	void Start ()
+	protected virtual void Start ()
     {
         startRot = transform.localRotation;
 	}
@@ -26,7 +28,7 @@ public class TyringDog : MonoBehaviour {
             StartCoroutine(Swing());
     }
 
-    protected void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if(other.name.Contains("Tyre"))
         {
@@ -50,18 +52,20 @@ public class TyringDog : MonoBehaviour {
         moving = true;
         float t = 0;
         Quaternion endRot = startRot * Quaternion.Euler(0, 0, -moveAngle);
-        while (t < 1)
+        while (!swingDirection)
         {
             transform.localRotation = Quaternion.Slerp(startRot, endRot, t);
             t += Time.deltaTime * pickupSpeed;
+            if (t > 1) swingDirection = true;
             yield return new YieldInstruction();
         }
-        while (t > 0)
+        while (swingDirection & t > 0)
         {
             transform.localRotation = Quaternion.Slerp(startRot, endRot, t);
             t -= Time.deltaTime * pickupSpeed;
             yield return new YieldInstruction();
         }
         moving = false;
+        swingDirection = false;
     }
 }
