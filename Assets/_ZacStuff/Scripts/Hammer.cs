@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hammer : TyringDog {
+public class Hammer : HeldObj {
     
     [HideInInspector]
     public Transform tyre;
@@ -19,8 +19,7 @@ public class Hammer : TyringDog {
 		
 	}
 
-    //Hide parent behaviour
-    protected override void OnTriggerEnter(Collider other)
+    protected void OnTriggerEnter(Collider other)
     {
         //Trigger the dumb hammerpoint object
         if (other.gameObject.tag.Equals("HammerPoint") && !swingDirection && moving)

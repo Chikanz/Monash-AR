@@ -3010,7 +3010,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89affba30c9885a418197ff2f854cb76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HammerCount: 16
+  HammerCount: 32
   wheelRadius: 1.5
   HammerPointPrefab: {fileID: 1649970661533128, guid: d00f0a9dd16e2f54ba55bf081219be73,
     type: 2}

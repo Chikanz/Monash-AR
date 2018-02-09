@@ -40,6 +40,10 @@ public class InstructionManager : ARBase
     private HammerPoints hammerPoints;
     private GameObject tyre;
 
+    //8
+    public GameObject WateringCanObj;
+    private WateringCan can;
+
     private SimpleAutomaticSynchronizationContextBehaviour alignment;
 
     int step = 0;
@@ -53,6 +57,7 @@ public class InstructionManager : ARBase
         "2. Put the tyre on the wheel",
         "3. Remove the chocks",
         "4. Hammer time",
+        "5. Water the wheel to cool it down"
     };
 
     public static InstructionManager GetInstance()
@@ -78,15 +83,13 @@ public class InstructionManager : ARBase
         alignment.OnAlignmentAvailable += Alignment_OnAlignmentAvailable;
 
         //Alignment not calced in editor
-#if UNITY_EDITOR
         Invoke("Advance", 0.6f);
         Invoke("Advance", 0.6f);
-#endif
     }
 
     private void Alignment_OnAlignmentAvailable(Alignment obj)
     {
-        Advance();
+        //Advance();
     }
 
     // Conditions
@@ -122,7 +125,7 @@ public class InstructionManager : ARBase
                         InstructionText.text = Instruction[step];
 
                         //Set vars
-                        hammerPoints = platform.transform.GetChild(0).GetComponentInChildren<HammerPoints>();
+                        hammerPoints = platform.transform.GetChild(0).GetChild(0).GetComponentInChildren<HammerPoints>();
                         tyre = platform.transform.GetChild(0).GetChild(0).gameObject;
                     }
                     else if (!p)
@@ -165,11 +168,13 @@ public class InstructionManager : ARBase
                 Debug.Log(Vector3.Dot(Vector3.up, tyre.transform.forward));
                 if (Vector3.Dot(Vector3.up, tyre.transform.forward) > 0.9999f && tyre.transform.localPosition == Vector3.zero)
                 {
-                    //Advance();
-                    Debug.Log("Noice wheel boy");
+                    Advance();
                 }
                 break;
 
+            case 8:
+                can.ActivateToggle(Input.GetMouseButtonDown(0));
+                break;
         }
     }
     
@@ -191,12 +196,11 @@ public class InstructionManager : ARBase
                 break;
 
             case 4: //Pickup tyre
-                //Spawn tyre dog
+                
                 AlignmentUI.gameObject.SetActive(false);
-                var c = GetCamera();
-                TyringDogInstance = Instantiate(TyringDog, c.transform.position, c.transform.rotation, c.transform).GetComponent<TyringDog>();
-                TyringDogInstance.transform.localRotation = Quaternion.Euler(0, -90, 0); 
-                TyringDogInstance.transform.localPosition = new Vector3(0.2f, -0.475f, 0.764f);
+
+                //Spawn tyre dog
+                TyringDogInstance = (TyringDog) SpawnHeldObj(TyringDog);
 
                 //Activate firepit
                 platform.transform.GetChild(1).gameObject.SetActive(true);
@@ -209,19 +213,33 @@ public class InstructionManager : ARBase
             case 7:
                 hammerPoints.gameObject.SetActive(true);
 
-                var cam = GetCamera();
-                HammerInstance = Instantiate(Hammer, cam.transform.position, cam.transform.rotation, cam.transform).GetComponent<Hammer>();
-                HammerInstance.transform.localRotation = Quaternion.Euler(0, -90, 0);
-                HammerInstance.transform.localPosition = new Vector3(0.2f, -0.475f, 0.764f);
+                //Spawn hammer
+                HammerInstance = (Hammer)SpawnHeldObj(Hammer);
+
                 HammerInstance.tyre = tyre.transform;
                 break;
 
             case 8:
-                Destroy(HammerInstance);
-                tyre.transform.rotation = Quaternion.identity;
-                tyre.transform.localPosition = Vector3.zero;
+                //Slight delay so it's not too jarring + show UI
+                Destroy(HammerInstance.gameObject, 1.5f);
+                Invoke("SpawnCan", 1.5f);
                 break;
         }
 
+    }
+
+    private void SpawnCan()
+    {
+        //Spawn can
+        can = (WateringCan)SpawnHeldObj(WateringCanObj);
+    }
+
+    private HeldObj SpawnHeldObj(GameObject ObjToSpawn)
+    {
+        var cam = GetCamera();
+        HeldObj returnObj = Instantiate(ObjToSpawn, cam.transform.position, cam.transform.rotation, cam.transform).GetComponent<HeldObj>();
+        returnObj.transform.localRotation = Quaternion.Euler(0, -90, 0);
+        returnObj.transform.localPosition = new Vector3(0.2f, -0.475f, 0.764f);
+        return returnObj;
     }
 }
