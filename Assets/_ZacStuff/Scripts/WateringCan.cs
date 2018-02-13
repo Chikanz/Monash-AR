@@ -16,8 +16,12 @@ public class WateringCan : HeldObj
 
     public void ActivateToggle(bool b)
     {
-        if (swingDirection == b || moving) return;
+        Debug.Log(b);
+
+        if (swingDirection == !b || moving) return;
         StartCoroutine(Swing(!b));
+
+        Debug.Log("Swinging " + !b);
 
         if (!swingDirection)
             _myParticles.Play();

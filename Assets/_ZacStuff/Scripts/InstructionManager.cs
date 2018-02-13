@@ -173,7 +173,7 @@ public class InstructionManager : ARBase
                 break;
 
             case 8:
-                can.ActivateToggle(Input.GetMouseButtonDown(0));
+                can.ActivateToggle(Input.GetMouseButton(0));
                 break;
         }
     }
@@ -220,9 +220,9 @@ public class InstructionManager : ARBase
                 break;
 
             case 8:
-                //Slight delay so it's not too jarring + show UI
-                Destroy(HammerInstance.gameObject, 1.5f);
-                Invoke("SpawnCan", 1.5f);
+                Destroy(HammerInstance.gameObject);
+                SpawnCan();
+                tyre.GetComponent<BoxCollider>().enabled = true;
                 break;
         }
 

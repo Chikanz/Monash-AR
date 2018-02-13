@@ -403,13 +403,14 @@ GameObject:
   - component: {fileID: 4039730352306176}
   - component: {fileID: 33935194371047404}
   - component: {fileID: 23646944943679508}
+  - component: {fileID: 65348134387460966}
   m_Layer: 0
   m_Name: Tyre Imperfect
-  m_TagString: Untagged
+  m_TagString: Tyre
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1433348361584848
 GameObject:
   m_ObjectHideFlags: 1
@@ -2812,6 +2813,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.019199997, y: 0.019196996, z: 0.0016221204}
   m_Center: {x: 0, y: 7.7525547e-10, z: 0.00001134218}
+--- !u!65 &65348134387460966
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1364496333838514}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 2.02, y: 2.0199993, z: 0.109999985}
+  m_Center: {x: 0, y: -0.00000011920929, z: 0}
 --- !u!65 &65678698616556954
 BoxCollider:
   m_ObjectHideFlags: 1

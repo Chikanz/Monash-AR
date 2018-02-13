@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4708742412264808}
   - component: {fileID: 198506823751437632}
   - component: {fileID: 199181517709375420}
+  - component: {fileID: 114130681492265358}
   m_Layer: 0
   m_Name: WateringCanParticles
   m_TagString: Untagged
@@ -98,7 +99,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1254447883517136}
   m_LocalRotation: {x: -0, y: -0, z: 0.03880985, w: 0.99924666}
-  m_LocalPosition: {x: 5.165913, y: -13.822258, z: 4.300073}
+  m_LocalPosition: {x: 2.324489, y: -13.184713, z: 5.3173094}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4946929260319370}
@@ -174,6 +175,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1444685001549982}
   m_Mesh: {fileID: 4300000, guid: cba3425dd2a211f4b90324dd2b8c9b35, type: 3}
+--- !u!114 &114130681492265358
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1005371577422876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9911b174b817b944288c657f5cabae77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ColChangeRate: 0.005
+  TyreEndCol: {r: 0.49264705, g: 0.49264705, b: 0.49264705, a: 1}
 --- !u!114 &114190131561588824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -185,8 +199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0988de169a18ad74a8abe38ac9220d47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupSpeed: 1
-  moveAngle: 45
+  pickupSpeed: 5
+  moveAngle: 15
   HoldToActivate: 1
 --- !u!198 &198469286187739730
 ParticleSystem:
@@ -248,7 +262,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -854390892
+  randomSeed: 1149748957
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3573,7 +3587,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 249800171
+  randomSeed: 1923410182
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -6019,7 +6033,7 @@ ParticleSystem:
     maxCollisionShapes: 256
     quality: 1
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
