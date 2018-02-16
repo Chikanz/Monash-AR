@@ -8,7 +8,6 @@ using UnityEngine.UI;
 /// Displays UI when not aligned
 /// Switches between route methods
 /// </summary>
-[RequireComponent(typeof(SimpleAutomaticSynchronizationContextBehaviour))]
 public class RouteManager : MonoBehaviour {
 
     SimpleAutomaticSynchronizationContextBehaviour Alignment;
@@ -28,6 +27,9 @@ public class RouteManager : MonoBehaviour {
     // Use this for initialization
     void Awake ()
     {
+        //Debug
+        enabled = false;
+
         Alignment = GetComponent<SimpleAutomaticSynchronizationContextBehaviour>();
         Alignment.OnAlignmentAvailable += Alignment_OnAlignmentAvailable;
 

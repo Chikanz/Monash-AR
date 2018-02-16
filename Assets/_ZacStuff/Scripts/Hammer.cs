@@ -39,6 +39,7 @@ public class Hammer : HeldObj {
                 tyre.transform.localPosition = Vector3.zero;
 
             other.gameObject.GetComponentInChildren<ParticleSystem>().Play();
+            other.gameObject.GetComponent<AudioSource>().Play();
 
             if (!swingDirection)
                 swingDirection = true;   

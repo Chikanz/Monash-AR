@@ -42,22 +42,24 @@ public class InstructionManager : ARBase
 
     //8
     public GameObject WateringCanObj;
-    private WateringCan can;
+    private WateringCan wateringCanInstance;
+    private Color TyreEndColor;
 
-    private SimpleAutomaticSynchronizationContextBehaviour alignment;
+    //private SimpleAutomaticSynchronizationContextBehaviour alignment;
 
-    int step = 0;
+    int step = 1;
     string[] Instruction =
     {
         "",
         "Walk to the destination",
-        "Welcome!",
+        "Welcome! Tap to begin",
         "Align the object with the platform",
-        "1. Tap to remove the tyre from the fire",
-        "2. Put the tyre on the wheel",
+        "1. Tap to remove the tyre from the fire with the tyring dog",
+        "2. Put the red hot tyre on the wheel",
         "3. Remove the chocks",
-        "4. Hammer time",
-        "5. Water the wheel to cool it down"
+        "4. Hammer the wheel into place",
+        "5. Water the wheel to cool it down and tighten it on the wheel",
+        "6. Congratulations! You've finished the wheel!"
     };
 
     public static InstructionManager GetInstance()
@@ -78,18 +80,6 @@ public class InstructionManager : ARBase
             instance = this;
         else
             Destroy(this);
-
-        alignment = GetComponent<SimpleAutomaticSynchronizationContextBehaviour>();
-        alignment.OnAlignmentAvailable += Alignment_OnAlignmentAvailable;
-
-        //Alignment not calced in editor
-        Invoke("Advance", 0.6f);
-        Invoke("Advance", 0.6f);
-    }
-
-    private void Alignment_OnAlignmentAvailable(Alignment obj)
-    {
-        //Advance();
     }
 
     // Conditions
@@ -98,10 +88,7 @@ public class InstructionManager : ARBase
         switch (step)
         {
             case 1:
-                //If close to start point
-                if (Vector3.Distance(GetCamera().transform.position,
-                    ZacMath.PlaceByLatLong(GetComponent<AbstractMap>(), platformLocation, 0)) < startDistance)
-                    Advance();
+                Advance();
                 break;
 
             case 2:
@@ -130,7 +117,7 @@ public class InstructionManager : ARBase
                     }
                     else if (!p)
                     {
-                        InstructionText.text = "Couldn't find ground plane!";
+                        InstructionText.text = "Please look around some more!";
                     }
                 }
                 break;
@@ -173,7 +160,12 @@ public class InstructionManager : ARBase
                 break;
 
             case 8:
-                can.ActivateToggle(Input.GetMouseButton(0));
+                wateringCanInstance.ActivateToggle(Input.GetMouseButton(0));
+
+                if(tyre.GetComponent<MeshRenderer>().material.color.Equals(TyreEndColor))
+                {
+                    Advance();
+                }
                 break;
         }
     }
@@ -187,7 +179,7 @@ public class InstructionManager : ARBase
         switch (step)
         {
             case 1:
-                GetComponent<RouteManager>().SwitchRoute(1);
+                //GetComponent<RouteManager>().SwitchRoute(1);
                 break;
 
             case 3: //Align platform
@@ -196,14 +188,14 @@ public class InstructionManager : ARBase
                 break;
 
             case 4: //Pickup tyre
-                
                 AlignmentUI.gameObject.SetActive(false);
 
                 //Spawn tyre dog
                 TyringDogInstance = (TyringDog) SpawnHeldObj(TyringDog);
 
-                //Activate firepit
-                platform.transform.GetChild(1).gameObject.SetActive(true);
+                //Disable platform enable wheel
+                platform.transform.GetChild(1).gameObject.SetActive(false);
+                platform.transform.GetChild(0).gameObject.SetActive(true);
                 break;
 
             case 6:
@@ -220,18 +212,23 @@ public class InstructionManager : ARBase
                 break;
 
             case 8:
+                //Spawn can
                 Destroy(HammerInstance.gameObject);
-                SpawnCan();
+                wateringCanInstance = (WateringCan)SpawnHeldObj(WateringCanObj);
                 tyre.GetComponent<BoxCollider>().enabled = true;
+
+                //Get final color
+                TyreEndColor = wateringCanInstance.GetComponentInChildren<WaterParticles>().TyreEndCol;
+                break;
+
+            case 9:
+                Destroy(wateringCanInstance.gameObject);
+                var p = tyre.transform.GetChild(1).GetComponent<ParticleSystem>();
+                p.Stop();
+                Destroy(p, 3);
                 break;
         }
 
-    }
-
-    private void SpawnCan()
-    {
-        //Spawn can
-        can = (WateringCan)SpawnHeldObj(WateringCanObj);
     }
 
     private HeldObj SpawnHeldObj(GameObject ObjToSpawn)

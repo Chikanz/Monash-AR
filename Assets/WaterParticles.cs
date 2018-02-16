@@ -36,6 +36,9 @@ public class WaterParticles : MonoBehaviour {
             if (TyreLerpCount < 1)
                 TyreLerpCount += ColChangeRate;
 
+            other.transform.GetChild(1).gameObject.SetActive(true);
+           
+
             _tyreRenderer.material.color = Color.Lerp(_tyreStartCol, TyreEndCol, TyreLerpCount);
         }
     }
