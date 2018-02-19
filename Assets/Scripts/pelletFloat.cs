@@ -14,6 +14,8 @@ public class pelletFloat : MonoBehaviour
 
     private const float rotRate = 5;
 
+    public bool IsEndMarker = false;
+
     private float yOffset;
 
 	// Use this for initialization

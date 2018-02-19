@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mapbox.Unity.Ar;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Displays UI when not aligned
@@ -16,7 +17,6 @@ public class RouteManager : MonoBehaviour {
     public GameObject CalibrationUI;
     public GameObject RouteSwitchUI;
 
-    public GameObject loadingDancer;
     public GameObject ButtonPrefab;
     public float buttonOffset;
 
@@ -35,7 +35,23 @@ public class RouteManager : MonoBehaviour {
 
         //Get route types and turn them off
         RouteTypes = GetComponents<Route>();
-        foreach (Route r in RouteTypes) r.enabled = false;
+        foreach (Route r in RouteTypes)
+        {
+            r.AddCoordinate(-37.8765, 145.0442);
+            r.AddCoordinate(-37.8768, 145.0440);
+            r.AddCoordinate(-37.8771, 145.0438);
+            r.AddCoordinate(-37.8772, 145.0442);
+            r.AddCoordinate(-37.8773, 145.0443);
+            r.AddCoordinate(-37.8774, 145.0449);
+            r.AddCoordinate(-37.8775, 145.0449);
+            r.AddCoordinate(-37.8778, 145.0448);
+            r.AddCoordinate(-37.8778, 145.0449);
+            r.AddCoordinate(-37.8780, 145.0462);
+            r.AddCoordinate(-37.8776, 145.0463);
+            r.AddCoordinate(-37.8776, 145.0461);
+
+            r.enabled = false;
+        }
 
 #if UNITY_EDITOR
         Invoke("InitEditorAlignment", 0.5f);
@@ -90,5 +106,15 @@ public class RouteManager : MonoBehaviour {
 
         RouteTypes[index].enabled = true;
 
+    }
+
+    /// <summary>
+    /// Loads the wheel wright scene
+    /// </summary>
+    public void SkipNavigation()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Wheel Wright");
+        CalibrationUI.SetActive(true);
+        CalibrationUI.GetComponentInChildren<Text>().text = "Loading.....";
     }
 }

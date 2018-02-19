@@ -113,7 +113,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &1123641888
+--- !u!1001 &553664160
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -191,76 +191,9 @@ Prefab:
         type: 2}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1213150263827238, guid: 35e76f6e52f5c4252a0b703cc2019a37, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1599606896020206, guid: 35e76f6e52f5c4252a0b703cc2019a37, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114341242509031076, guid: 35e76f6e52f5c4252a0b703cc2019a37,
-        type: 2}
-      propertyPath: WateringCan
-      value: 
-      objectReference: {fileID: 1254447883517136, guid: 7c22a8cc19c688a448179394013b0c47,
-        type: 2}
-    - target: {fileID: 114341242509031076, guid: 35e76f6e52f5c4252a0b703cc2019a37,
-        type: 2}
-      propertyPath: WateringCanObj
-      value: 
-      objectReference: {fileID: 1254447883517136, guid: 7c22a8cc19c688a448179394013b0c47,
-        type: 2}
-    m_RemovedComponents:
-    - {fileID: 114446564026984890, guid: 35e76f6e52f5c4252a0b703cc2019a37, type: 2}
-  m_ParentPrefab: {fileID: 100100000, guid: 35e76f6e52f5c4252a0b703cc2019a37, type: 2}
-  m_IsPrefabParent: 0
---- !u!1001 &1195610402
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4915886161555560, guid: 86b2954d9b368784eb1860fe2d09731a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 4.94
-      objectReference: {fileID: 0}
-    - target: {fileID: 4915886161555560, guid: 86b2954d9b368784eb1860fe2d09731a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -8.747
-      objectReference: {fileID: 0}
-    - target: {fileID: 4915886161555560, guid: 86b2954d9b368784eb1860fe2d09731a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 1.73
-      objectReference: {fileID: 0}
-    - target: {fileID: 4915886161555560, guid: 86b2954d9b368784eb1860fe2d09731a, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4915886161555560, guid: 86b2954d9b368784eb1860fe2d09731a, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4915886161555560, guid: 86b2954d9b368784eb1860fe2d09731a, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4915886161555560, guid: 86b2954d9b368784eb1860fe2d09731a, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4915886161555560, guid: 86b2954d9b368784eb1860fe2d09731a, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1450491899667774, guid: 86b2954d9b368784eb1860fe2d09731a, type: 2}
-      propertyPath: m_Name
-      value: Tyring Platform Root
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 86b2954d9b368784eb1860fe2d09731a, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: 35e76f6e52f5c4252a0b703cc2019a37, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1391539624
 GameObject:
@@ -348,7 +281,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -392,7 +325,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4375506567224262, guid: 67597a1e442b246869f416a1b5272850, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1242951321969780, guid: 67597a1e442b246869f416a1b5272850, type: 2}
       propertyPath: m_IsActive
@@ -524,7 +457,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 63.802002, y: -30.000002, z: 0}
 --- !u!114 &2058072450
 MonoBehaviour:

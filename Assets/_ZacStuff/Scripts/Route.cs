@@ -67,9 +67,12 @@ public abstract class Route : ARBase {
     /// <summary>
     /// Route coordinates should be added here
     /// </summary>
-    protected abstract void AddCoordinates();
+    protected virtual void AddCoordinates()
+    {
+        //leave blank for children classes 
+    }
 
-    protected void AddCoordinate(double lat, double lon)
+    public void AddCoordinate(double lat, double lon)
     {
         latLon.Add(new Vector2d(lat, lon));
     }

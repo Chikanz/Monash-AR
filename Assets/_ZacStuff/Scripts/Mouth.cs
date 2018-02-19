@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(SphereCollider))]
 public class Mouth : MonoBehaviour {
@@ -8,14 +9,13 @@ public class Mouth : MonoBehaviour {
     public float radius = 1;
     public GameObject EatParticles;
 
-    private SphereCollider collider;
+    private SphereCollider _myCollider;
 
 	// Use this for initialization
 	void Start () {
-        collider = GetComponent<SphereCollider>();
-        collider.radius = radius;
-        collider.isTrigger = true;
-
+        _myCollider = GetComponent<SphereCollider>();
+        _myCollider.radius = radius;
+        _myCollider.isTrigger = true;
     }
 	
 	// Update is called once per frame
@@ -25,11 +25,17 @@ public class Mouth : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.GetComponentInParent<pelletFloat>())
+        var pf = other.GetComponentInParent<pelletFloat>();
+        if (pf)
         {
             var p = Instantiate(EatParticles, other.transform.position, Quaternion.identity, null);
             Destroy(p, 1);
             Destroy(other.gameObject);
+
+            if(pf.IsEndMarker) //Load new scene on collision with end marker
+            {
+                AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Wheel Wright");
+            }
         }
     }
 

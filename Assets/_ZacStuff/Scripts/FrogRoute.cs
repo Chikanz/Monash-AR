@@ -29,18 +29,18 @@ public class FrogRoute : Route
         target = Route3d[targetCounter];
     }
 
-    protected override void AddCoordinates()
-    {
-        AddCoordinate(-37.87646, 145.04421);
-        AddCoordinate(-37.87675, 145.04403);
-        AddCoordinate(-37.87667, 145.04334);
-        AddCoordinate(-37.87673, 145.04329);
-        AddCoordinate(-37.87676, 145.04320);
-        AddCoordinate(-37.87692, 145.04304);
-        AddCoordinate(-37.87691, 145.04284);
-        AddCoordinate(-37.87704, 145.04271);
-        AddCoordinate(-37.87695, 145.04256);
-    }
+    //protected override void AddCoordinates()
+    //{
+    //    AddCoordinate(-37.87646, 145.04421);
+    //    AddCoordinate(-37.87675, 145.04403);
+    //    AddCoordinate(-37.87667, 145.04334);
+    //    AddCoordinate(-37.87673, 145.04329);
+    //    AddCoordinate(-37.87676, 145.04320);
+    //    AddCoordinate(-37.87692, 145.04304);
+    //    AddCoordinate(-37.87691, 145.04284);
+    //    AddCoordinate(-37.87704, 145.04271);
+    //    AddCoordinate(-37.87695, 145.04256);
+    //}
 
     // Update is called once per frame
     void Update()
