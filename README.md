@@ -12,3 +12,7 @@ This repo has a series of features including:
 - Prefabs for displaying information on a cube or billboard
 - A short experience that steps the user through the [wheelwright's](https://en.wikipedia.org/wiki/Wheelwright) process of putting a tyre on a wheel in AR. [You can find out more about that here](https://www.notion.so/Monash-AR-experience-storyboard-2720e77d45a440f9a87005cac710cd6b)
 
+
+
+Here's a diagram showing how all the different frameworks fit together in Unity:
+![alt text](https://i.imgur.com/jsoHR2Y.png)
